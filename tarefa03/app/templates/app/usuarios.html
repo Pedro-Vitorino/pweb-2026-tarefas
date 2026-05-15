@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outra página</title>
+</head>
+<body>
+        <u><h1>Lista de usuários do sistema</h1></u>
+        <br>
+        <ol>
+        {% for user in usuarios %}
+        
+            <li>
+                <ul>
+                    <li>Nome: {{user.nome}}</li>
+                    <li>Matrícula: {{user.matricula}}</li>
+                    <li>Idade: {{user.idade}}</li>
+                    <li>Cidade: {{user.cidade}}</li>
+                </ul>
+            </li>
+        <br>
+        {% endfor %}
+        </ol>
+</body>
+</html>
