@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <title>Lista de Tarefas!</title>
+</head>
+<body>
+    <center>
+    <u><h1>Seja Bem Vindo Ao Listador de Tarefas Premium Plus Golden!</h1></u>
+    </center>
+    <br>
+    <br>
+        <ul>
+            {% for tarefa in tarefa %}
+            <li>
+                <h3>
+                    {% if tarefa.status %}
+                        <s>{{tarefa.nome}} / Para o dia: {{tarefa.prazo}} / Status: Finalizado <i class="fa-solid fa-circle-check"></i></s>
+                            {% elif hoje > tarefa.prazo and not tarefa.status %}
+                                <H3 class="text-danger">{{tarefa.nome}} / Para o dia: {{tarefa.prazo}} / Status: ATRASADA</H3>
+                                    {%else%}    
+                                        {{tarefa.nome}} / Para o dia: {{tarefa.prazo}} / Status: Não Finalizado
+                    {% endif %}
+                    
+                </h3>
+            </li>
+            {% endfor %}
+        </ul>
+    
+ <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
