@@ -1,0 +1,15 @@
+{%extends "blog/index.html" %}
+
+{%block titulo%}{{post.titulo}}{%endblock%}
+
+{%block main %}
+        <h1>{{post.titulo}} <br> <small class="text-muted"> {{post.data}}</small></h1>
+        
+        <div class="w.75">
+                <img src="{{post.foto.url}}" class="img-fluid">
+        </div>
+        <hr>
+        <p>
+                {{post.texto}}
+        </p>
+{%endblock%}

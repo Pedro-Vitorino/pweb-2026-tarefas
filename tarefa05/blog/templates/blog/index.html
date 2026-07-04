@@ -9,20 +9,29 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <title>Blog</title>
+    <title>Blog | {%block titulo%}Página Inicial{%endblock%}</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
     <nav class="navbar bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="#">Blog</a>
+            <a class="navbar-brand text-white" href="{% url 'index' %}">Blog do Pedrão</a>
         </div>
     </nav>
 
-    <main class="flex-grow-1">
-        <!-- conteúdo da página aqui -->
+   
+    <main class="flex-grow-1 text-center">
+        {%block main %}
+        
+        <h1>Últimas Notícias!</h1>
+        <ul class="list-group">
+            {%for post in posts%}
+            <a class="text-dark text-decoration-none"  href="{% url 'post' post.id%}"><li class="list-group-item">{{post.titulo}} |</a> <small class="text-muted"> Publicado Em: {{post.data}}</small></li>
+            {%endfor%}
+        </ul> 
+        {%endblock%}
     </main>
-
+    
     <footer class="bg-primary text-white text-center py-2">
         <div class="container">
             <p class="mb-1">Desenvolvido por Pedro Emanuel Vitorino Dias Monteiro/InfoWeb3M</p>
